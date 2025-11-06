@@ -1,0 +1,39 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title SkyScholars | Register
+    link(rel="stylesheet", href="/css/navbar-footer.css")
+    link(rel="stylesheet", href="/css/register.css")
+  body
+    // ===== Include Shared Header =====
+    include _header.pug
+
+    // ---------- REGISTER SECTION ----------
+    main.register-container
+      .register-box
+        h1 Register
+        form#registerForm(action="/register" method="POST")
+          label(for="username") Name
+          input#username(type="text" name="username" placeholder="Enter your name" required)
+
+          label(for="email") Email
+          input#email(type="email" name="email" placeholder="Enter your email" required)
+          span#email-status
+
+          label(for="password") Password
+          input#password(type="password" name="password" placeholder="Enter your password" required)
+
+          // Buttons row
+          .buttons
+            button.btn-small(type="submit") Register
+            button.btn-small(type="reset") Reset
+
+          button#cancelBtn(type="button") Cancel
+
+    // ===== Include Shared Footer =====
+    include _footer.pug
+
+    script(src="/js/checkemail.js")
+    script(src="/js/register.js")

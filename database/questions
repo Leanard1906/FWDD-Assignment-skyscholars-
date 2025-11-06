@@ -1,0 +1,11 @@
+CREATE TABLE questions (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  roomCode VARCHAR(20) NOT NULL,
+  topic VARCHAR(100) NOT NULL,
+  question TEXT NOT NULL,
+  optionA VARCHAR(255) NOT NULL,
+  optionB VARCHAR(255) NOT NULL,
+  optionC VARCHAR(255) NOT NULL,
+  optionD VARCHAR(255) NOT NULL,
+  correctAnswer VARCHAR(5) NOT NULL
+);

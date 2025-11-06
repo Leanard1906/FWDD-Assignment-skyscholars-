@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title SkyScholars | Home
+    // Shared navbar + footer styles
+    link(rel="stylesheet", href="/css/navbar-footer.css")
+    // Page-specific styles
+    link(rel="stylesheet", href="/css/main.css")
+    script(defer src="/js/main.js")
+  body
+    // ===== Include Shared Header =====
+    include _header.pug
+
+    // ===== MAIN HERO SECTION =====
+    section.hero
+      .hero-left
+        h1
+          | Challenge 
+          span.highlight Your
+          br
+          | Mind
+        p Discover, learn, and play your way to victory — where every question brings you closer to the top!
+        a.play-btn(href="/joincode") Start Playing Now
+
+      .hero-right
+        img(src="/image/Main Pic.png", alt="Quiz Illustration")
+
+    // ===== Include Shared Footer =====
+    include _footer.pug

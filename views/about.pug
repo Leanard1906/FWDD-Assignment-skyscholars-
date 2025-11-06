@@ -1,0 +1,64 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title About | SkyScholars
+    link(rel="stylesheet", href="/css/navbar-footer.css")
+    link(rel="stylesheet", href="/css/about.css")
+    script(defer src="/js/about.js")
+  body
+    // ===== Header =====
+    include _header.pug
+
+    // ---------- HERO SECTION ----------
+    .hero
+      .hero-content
+        h1 About 
+          span.highlight SkyScholars
+        p.desc A fun and educational multiplayer game that combines knowledge and strategy!
+        p.subtext Challenge your friends, test your smarts, and race to victory while learning new things.
+
+    // ---------- ABOUT DETAILS ----------
+    .about-container
+      h1.page-title Game Rules & Guide
+
+      .about-card
+        h2 Game setup and objective
+        p
+          | Players: 2 to 4 players.
+          br
+          | Setup: Each player chooses a color and places their four airplane pieces in the hangar in their corresponding corner.
+          br
+          | Objective: Be the first player to get all four of your planes from your starting hangar to your central home base.
+
+      .about-card
+        h2 How to play
+        p
+          | Start the game: The player with the highest dice roll goes first. Play proceeds clockwise.
+          br
+          | Moving pieces out: When you roll an even number, you can move one of your pieces from the hangar onto the starting space on the board.
+          br
+          | Moving pieces on the board: After a piece is on the board, roll the dice and move one of your planes clockwise along the outer track the number of spaces shown.
+          br
+          | Landing on your own color: If you land on a space of your own color, you must answer a question. If you answer correctly, you can follow the arrow to jump to the next space of the same color. If you answer incorrectly, stay where you are.
+          br
+          | Landing on an opponent's piece: If you land on an opponent’s piece, you must answer a random quiz question. If you answer correctly, their piece is sent back to their hangar. If you answer incorrectly, you must roll the dice and move back by the number you rolled.
+          br
+          | Landing on an opponent's shortcut: You can only use the shortcut of your own color. You must answer a question before using the shortcut.
+          br
+          | Stacking pieces: If you land on a space already occupied by one of your own pieces, you can choose to stack them. A stack moves as one piece. If an opponent lands on your stack, the whole stack is sent back to the hangar.
+
+      .about-card
+        h2 Finishing the game
+        p
+          | Entering the home base: To move a piece into the center home area, you must first answer a question. If you answer correctly, you may roll the dice and must get the exact number needed to enter. If you answer incorrectly, move your piece back 2 steps.
+          br
+          | Overshooting the home base: If your roll is too high for the exact number, you must move backwards from the home base the remaining number of spaces.
+          br
+          | Winning: The first player to get all four of their planes into their home base wins.
+
+      a.back-btn(href="/") ← Back to Home
+
+    // ===== Footer =====
+    include _footer.pug

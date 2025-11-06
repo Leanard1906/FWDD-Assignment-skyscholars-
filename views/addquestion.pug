@@ -1,0 +1,49 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title SkyScholars | Add Questions
+    link(rel="stylesheet", href="/css/navbar-footer.css")
+    link(rel="stylesheet", href="/css/addquestion.css")
+    script(defer src="/js/addquestion.js")
+
+  body
+    include _header.pug
+
+    .container
+      h1 Add New Questions
+      form#addQuestionForm(action="/addquestion", method="POST")
+        label(for="topic") Topic:
+        input(type="text", id="topic", name="topic", placeholder="Enter topic (e.g., English, Math...)" required)
+
+        label(for="roomCode") Room Code:
+        .roomcode-box
+          input(type="text", id="roomCode", name="roomCode", placeholder="Enter unique room code (e.g., ENG123)" required)
+          button(type="button", id="generateCodeBtn") Generate Code
+
+        #questionsContainer
+          .question-block
+            label Question:
+            input(type="text", name="question", placeholder="Enter your question", required)
+            label Options:
+            input(type="text", name="A", placeholder="Option A", required)
+            input(type="text", name="B", placeholder="Option B", required)
+            input(type="text", name="C", placeholder="Option C", required)
+            input(type="text", name="D", placeholder="Option D", required)
+            label Correct Answer:
+            select(name="correctAnswer", required)
+              option(value="A") A
+              option(value="B") B
+              option(value="C") C
+              option(value="D") D
+
+        .form-buttons
+          button(type="button", id="addQuestionBtn") + Add Another Question
+          .right-buttons
+            a.cancel-btn(href="/viewquestion") Cancel
+            button(type="submit") Save All
+
+      p#message
+
+    include _footer.pug

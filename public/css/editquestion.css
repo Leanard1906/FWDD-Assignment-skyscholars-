@@ -1,0 +1,127 @@
+/* ---------- GLOBAL ---------- */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #0b0f0f 0%, #101414 100%);
+  color: white;
+}
+
+/* ---------- CONTAINER ---------- */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  min-height: 85vh;
+  padding: 40px 0;
+}
+
+/* ---------- FORM CARD ---------- */
+.form-card {
+  background: #141b1c;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+  padding: 40px;
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ---------- TITLE ---------- */
+.page-title {
+  text-align: center;
+  color: #00bfff;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* ---------- FORM ---------- */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  margin: 0 auto;
+}
+
+label {
+  font-weight: 600;
+  color: #ccc;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+/* ---------- INPUTS ---------- */
+input[type="text"],
+textarea,
+select {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #1f2a2b;
+  color: white;
+  font-size: 15px;
+  width: 100%;
+  outline: none;
+  margin-bottom: 15px;
+  transition: background 0.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  background: #253334;
+}
+
+/* ---------- FIX TEXTAREA ---------- */
+textarea {
+  height: 45px; /* match input height */
+  resize: none;
+  overflow-y: auto;
+  display: block;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn-save,
+.btn-add {
+  background: #009dff;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-save:hover,
+.btn-add:hover {
+  background: #00bfff;
+}
+
+/* ---------- BUTTON LAYOUT ---------- */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* ---------- BACK BUTTON ---------- */
+.btn-back {
+  display: inline-block;
+  text-align: center;
+  background: #3a3a3a;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn-back:hover {
+  background: #555;
+}
+

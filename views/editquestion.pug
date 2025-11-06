@@ -1,0 +1,86 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title SkyScholars | Edit Questions
+    // ===== CSS =====
+    link(rel="stylesheet", href="/css/main.css")
+    link(rel="stylesheet", href="/css/navbar-footer.css")
+    link(rel="stylesheet", href="/css/editquestion.css")
+    // ===== JS =====
+    script(src="/js/main.js" defer)
+
+  body
+    // ===== NAVBAR =====
+    include _header.pug
+
+    // ===== MAIN CONTENT =====
+    main.container
+      if questions
+        .form-card
+          h1.page-title Edit or Delete Questions
+          table#questionTable
+            thead
+              tr
+                th Topic
+                th Question
+                th A
+                th B
+                th C
+                th D
+                th Correct
+                th Actions
+            tbody
+              each q in questions
+                tr
+                  td= q.topic
+                  td= q.question
+                  td= q.optionA
+                  td= q.optionB
+                  td= q.optionC
+                  td= q.optionD
+                  td= q.correctAnswer
+                  td
+                    a.btn-save(href=`/editquestion/${q.id}`) Edit
+                    form(action=`/deletequestion/${q.id}`, method="POST", style="display:inline;")
+                      button.btn-back(type="submit") Delete
+
+      else if question
+        .form-card
+          h1.page-title Edit Question ##{question.id}
+          form(action=`/editquestion/${question.id}`, method="POST", class="edit-form")
+            label(for="topic") Topic:
+            input(type="text", id="topic", name="topic", required, value=question.topic)
+
+            label(for="question") Question:
+            input(type="text", id="question", name="question", required, value=question.question)
+
+            label(for="optionA") Option A:
+            input(type="text", id="optionA", name="optionA", required, value=question.optionA)
+
+            label(for="optionB") Option B:
+            input(type="text", id="optionB", name="optionB", required, value=question.optionB)
+
+            label(for="optionC") Option C:
+            input(type="text", id="optionC", name="optionC", required, value=question.optionC)
+
+            label(for="optionD") Option D:
+            input(type="text", id="optionD", name="optionD", required, value=question.optionD)
+
+            label(for="correctAnswer") Correct Answer:
+            select(id="correctAnswer", name="correctAnswer", required)
+              option(value="A", selected=question.correctAnswer === 'A') A
+              option(value="B", selected=question.correctAnswer === 'B') B
+              option(value="C", selected=question.correctAnswer === 'C') C
+              option(value="D", selected=question.correctAnswer === 'D') D
+
+            .button-group
+              a.btn-back(href="/viewquestion") ← Back
+              button.btn-save(type="submit") Save Changes
+      else
+        .form-card
+          p No questions found.
+
+    // ===== FOOTER =====
+    include _footer.pug

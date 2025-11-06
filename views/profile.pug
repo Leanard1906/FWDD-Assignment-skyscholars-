@@ -1,0 +1,48 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title SkyScholars | My Profile
+    link(rel="stylesheet", href="/css/navbar-footer.css")
+    link(rel="stylesheet", href="/css/profile.css")
+  body
+    // ===== Include Shared Header =====
+    include _header.pug
+
+    // ===== PROFILE CONTAINER =====
+    main.profile-container
+      h1.profile-title My Profile
+
+      // ===== UPDATE INFO FORM =====
+      form#updateForm(action="/profile/update" method="POST")
+        .input-group
+          label(for="username") Username
+          input#username(type="text" name="username" required value=(profile && profile.username) || '')
+        .input-group
+          label(for="email") Email
+          input#email(type="email" name="email" required value=(profile && profile.email) || '')
+        button.save-btn(type="submit") Save Changes
+
+      // ===== CHANGE PASSWORD =====
+      form#passwordForm(action="/profile/change-password" method="POST")
+        h2 Change Password
+        .input-group
+          label(for="currentPassword") Current Password
+          input#currentPassword(type="password" name="currentPassword" required)
+        .input-group
+          label(for="newPassword") New Password
+          input#newPassword(type="password" name="newPassword" required)
+        button.password-btn(type="submit") Change Password
+
+      // ===== STATUS MESSAGE =====
+      p#statusMessage
+
+      // ===== BACK BUTTON =====
+      a.back-btn(href="/") ← Back
+
+    // ===== Include Shared Footer =====
+    include _footer.pug
+
+    // ===== JS =====
+    script(src="/js/profile.js")

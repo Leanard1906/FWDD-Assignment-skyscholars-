@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title SkyScholars | Scoreboard
+    link(rel="stylesheet", href="/css/navbar-footer.css")
+    link(rel="stylesheet", href="/css/main.css")
+    link(rel="stylesheet", href="/css/scoreboard.css")
+    script(src="/js/main.js" defer)
+  body
+    include _header.pug
+
+    main.leaderboard-container
+      h1.leaderboard-title Leaderboard
+
+      if scores && scores.length > 0
+        table.leaderboard-table
+          thead
+            tr
+              th Rank
+              th Username
+              th Score
+          tbody
+            each score, index in scores
+              tr
+                td #{index + 1}
+                td #{score.username || "Guest"}
+                td #{score.score}
+      else
+        p.no-data No scores available yet.
+
+    include _footer.pug

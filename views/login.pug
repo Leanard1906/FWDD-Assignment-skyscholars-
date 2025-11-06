@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title SkyScholars | Login
+    link(rel="stylesheet", href="/css/navbar-footer.css")
+    link(rel="stylesheet", href="/css/login.css")
+  body
+    // ===== Include Shared Header =====
+    include _header.pug
+
+    // ---------- MAIN CONTAINER ----------
+    .container
+      // LEFT IMAGE SECTION
+      .image-section
+        img(src="/image/Login Pic.png", alt="Login illustration")
+
+      // RIGHT FORM SECTION
+      .form-section
+        h1 Login
+        form#loginForm
+          label(for="email") Email
+          input#email(type="email", placeholder="Enter your email", required)
+
+          label(for="password") Password
+          input#password(type="password", placeholder="Enter your password", required)
+
+          p#statusMessage
+
+          .button-section
+            button#loginBtn(type="submit") Login
+            a#backBtn(href="/main") Back
+
+    // ===== Include Shared Footer =====
+    include _footer.pug
+
+    script(src="/js/login.js")

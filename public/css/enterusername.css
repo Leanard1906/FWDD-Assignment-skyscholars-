@@ -1,0 +1,86 @@
+/* ---------- GENERAL ---------- */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #0b0f0f 0%, #101414 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ---------- MAIN CONTENT ---------- */
+main.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* ---------- LOGO SECTION ---------- */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo-box-big {
+  background: linear-gradient(135deg, #00bfff, #3ae0ff);
+  color: black;
+  font-weight: bold;
+  font-size: 3rem;
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 191, 255, 0.5);
+}
+
+.logo-text-big {
+  font-size: 3rem;
+  color: #00bfff;
+  letter-spacing: 1px;
+}
+
+/* ---------- INPUT BOX ---------- */
+.input-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 8px;
+  gap: 10px;
+}
+
+#username {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ddd;
+  font-size: 1.1rem;
+  padding: 10px;
+  width: 250px;
+}
+
+#username::placeholder {
+  color: #aaa;
+}
+
+#joinBtn {
+  background: #004e5f;
+  border: none;
+  color: #00bfff;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#joinBtn:hover {
+  background: #007c97;
+  transform: scale(1.05);
+}

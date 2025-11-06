@@ -1,0 +1,98 @@
+/* ---------- PAGE BACKGROUND & LAYOUT ---------- */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #0b0f0f 0%, #101414 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ---------- HERO SECTION ---------- */
+.hero {
+  text-align: center;
+  padding: 100px 20px 40px;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin: 0;
+}
+
+.hero .highlight {
+  color: #00bfff;
+}
+
+.hero .desc {
+  color: #cfcfcf;
+  margin-top: 12px;
+  font-size: 1.1rem;
+}
+
+.hero .subtext {
+  color: #9f9f9f;
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+/* ---------- ABOUT CONTENT ---------- */
+.about-container {
+  max-width: 950px;
+  margin: 40px auto;
+  padding: 0 20px 60px;
+}
+
+.page-title {
+  text-align: center;
+  color: #00bfff;
+  font-size: 2rem;
+  margin-bottom: 28px;
+}
+
+/* ---------- ABOUT CARDS ---------- */
+.about-card {
+  background: linear-gradient(180deg, rgba(20,24,24,0.7), rgba(12,15,15,0.6));
+  border-radius: 14px;
+  padding: 26px;
+  margin-bottom: 26px;
+  box-shadow: 0 10px 30px rgba(0,191,255,0.06), inset 0 -2px 18px rgba(0,0,0,0.3);
+  border: 1px solid rgba(0,191,255,0.03);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 46px rgba(0,191,255,0.12), inset 0 -4px 24px rgba(0,0,0,0.45);
+}
+
+.about-card h2 {
+  color: #00bfff;
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+.about-card p {
+  color: #d6d6d6;
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+
+/* ---------- BACK BUTTON ---------- */
+.back-btn {
+  display: inline-block;
+  margin-top: 12px;
+  color: #00bfff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.back-btn:hover {
+  color: #00e6ff;
+}
+
+/* ---------- FOOTER ALIGNMENT ---------- */
+footer {
+  margin-top: auto;
+}

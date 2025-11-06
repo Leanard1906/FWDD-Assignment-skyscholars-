@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title SkyScholars | Start Quiz
+
+    // ===== Shared & Page Styles =====
+    link(rel="stylesheet", href="/css/navbar-footer.css")
+    link(rel="stylesheet", href="/css/startquiz.css")
+
+    // ===== JS =====
+    script(src="/js/main.js" defer)
+
+  body
+    // ===== NAVBAR (shared) =====
+    include _header.pug
+
+    // ===== MAIN CONTENT =====
+    main.quiz-container
+      h1.quiz-title SkyScholars Quiz
+      p.quiz-desc Test your knowledge and see how you rank among others!
+      button#startQuizBtn(type="button") Start Quiz
+
+    // ===== FOOTER (shared) =====
+    include _footer.pug
+
+    // ===== INLINE SCRIPT =====
+    script.
+      const startQuizBtn = document.getElementById("startQuizBtn");
+      if (startQuizBtn) {
+        startQuizBtn.addEventListener("click", () => {
+          window.location.href = "/quiz";
+        });
+      }

@@ -1,0 +1,129 @@
+/* ---------- NAVBAR ---------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0b0f0f;
+  padding: 15px 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 100;
+}
+
+.nav-left .logo {
+  display: flex;
+  align-items: center;
+}
+
+/* ---------- LOGO ---------- */
+.logo-box {
+  background: linear-gradient(135deg, #00bfff, #3ae0ff);
+  color: #000;
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  margin-right: 8px;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.4);
+  animation: logoPulse 3s infinite ease-in-out;
+}
+
+@keyframes logoPulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.9);
+  }
+}
+
+.logo-text {
+  color: #00bfff;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* ---------- NAV LINKS ---------- */
+.nav-links {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.nav-links a {
+  margin: 0 20px;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #00bfff;
+  text-shadow: 0 0 6px rgba(30, 200, 255, 0.6);
+}
+
+/* ---------- RIGHT NAV SECTION ---------- */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-right a {
+  color: white;
+  font-weight: 500;
+}
+
+.nav-right a:hover {
+  color: #00bfff;
+}
+
+/* ---------- REGISTER / LOGOUT / LOGIN ---------- */
+.register,
+.logout-btn {
+  background: linear-gradient(90deg, #1ec8ff, #38bdf8);
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: black;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.register:hover,
+.logout-btn:hover {
+  background: #00bfff;
+  transform: scale(1.05);
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  background: #0b0f0f;
+  padding: 25px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer .logo-box {
+  background: linear-gradient(135deg, #00bfff, #3ae0ff);
+  color: #000;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 5px 10px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.4);
+}
+
+.footer .logo-text {
+  color: #00bfff;
+  font-size: 1.1rem;
+  font-weight: 500;
+}

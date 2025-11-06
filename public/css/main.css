@@ -1,0 +1,176 @@
+/* =========================================================
+   SKY SCHOLARS — MAIN PAGE STYLES
+   (Navbar & Footer handled by navbar-footer.css)
+   ========================================================= */
+
+/* ---------- GLOBAL ---------- */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #0b0f0f 0%, #101414 100%);
+  color: white;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+/* ---------- HERO SECTION ---------- */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 100px;
+  background: #111718;
+  flex-wrap: wrap;
+  gap: 60px;
+  min-height: 75vh;
+}
+
+.hero-left {
+  flex: 1;
+  max-width: 45%;
+}
+
+.hero-left h1 {
+  font-size: 3.2rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 0;
+}
+
+.highlight {
+  color: #00bfff;
+}
+
+.hero-left p {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #d4d4d4;
+  line-height: 1.6;
+  max-width: 450px;
+}
+
+.play-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  padding: 14px 28px;
+  border-radius: 12px;
+  color: black;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(30, 200, 255, 0.3);
+}
+
+.play-btn:hover {
+  transform: scale(1.05);
+  background: #00bfff;
+  box-shadow: 0 0 30px rgba(0, 191, 255, 0.5);
+}
+
+/* ---------- HERO IMAGE ---------- */
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-right img {
+  width: 500px;
+  max-width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(30, 200, 255, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-right img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 40px rgba(30, 200, 255, 0.6);
+}
+
+/* ---------- SCROLL ANIMATIONS (optional aesthetic) ---------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-left,
+.hero-right {
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+@media (max-width: 1000px) {
+  .hero {
+    padding: 60px 40px;
+  }
+
+  .hero-left h1 {
+    font-size: 2.6rem;
+  }
+
+  .hero-left p {
+    font-size: 1rem;
+  }
+
+  .hero-right img {
+    width: 380px;
+  }
+}
+
+@media (max-width: 750px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 50px 20px;
+    gap: 40px;
+  }
+
+  .hero-left,
+  .hero-right {
+    max-width: 100%;
+  }
+
+  .hero-left p {
+    max-width: 100%;
+  }
+
+  .play-btn {
+    margin-top: 25px;
+  }
+
+  .hero-right img {
+    width: 300px;
+  }
+}
+
+/* ---------- SMALL DEVICES ---------- */
+@media (max-width: 480px) {
+  .hero-left h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-left p {
+    font-size: 0.95rem;
+  }
+
+  .play-btn {
+    padding: 12px 22px;
+    font-size: 0.95rem;
+  }
+}

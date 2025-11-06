@@ -1,0 +1,34 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Edit User
+    link(rel="stylesheet", href="/css/navbar-footer.css")
+    link(rel="stylesheet", href="/css/edituser.css")
+
+  body
+    include _header.pug
+
+    main
+      .edit-user-container
+        h1 Edit User
+
+        form(method="POST", action=`/edituser/${userData.id}`)
+          label(for="username") Username
+          input(type="text", name="username", value=userData.username required)
+
+          label(for="email") Email
+          input(type="email", name="email", value=userData.email required)
+
+          label(for="role") Role
+          select(name="role")
+            option(value="admin" selected=(userData.role==="admin")) Admin
+            option(value="teacher" selected=(userData.role==="teacher")) Teacher
+            option(value="student" selected=(userData.role==="student")) Student
+
+          button(type="submit") Save Changes
+
+        a.back-link(href="/viewuser") ← Back to User List
+
+    include _footer.pug

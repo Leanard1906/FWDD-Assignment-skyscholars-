@@ -1,0 +1,153 @@
+/* =========================================================
+   SKY SCHOLARS — REGISTER PAGE STYLES
+   (Navbar & Footer handled by navbar-footer.css)
+   ========================================================= */
+
+/* ---------- PAGE BASE ---------- */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #0b0f0f 0%, #101414 100%);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ---------- REGISTER CONTAINER ---------- */
+.register-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px 100px; /* bottom space so footer doesn't overlap */
+}
+
+.register-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 45px 60px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+  text-align: left;
+  width: 420px;
+  backdrop-filter: blur(5px);
+}
+
+.register-box h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #00bfff;
+  text-shadow: 0 0 12px rgba(0, 191, 255, 0.6);
+}
+
+/* ---------- INPUTS ---------- */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #f2f2ff;
+  margin-bottom: 18px;
+  font-size: 1rem;
+  color: #000;
+  outline: none;
+}
+
+/* ---------- EMAIL STATUS ---------- */
+#email-status {
+  display: block;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  color: #00bfff;
+  min-height: 18px;
+  text-align: left;
+}
+
+/* ---------- BUTTONS ---------- */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0 15px;
+}
+
+.btn-small {
+  width: 45%;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 0;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: bold;
+}
+
+/* Register */
+button.btn-small[type="submit"] {
+  background: linear-gradient(135deg, #00bfff, #3ae0ff);
+  color: black;
+}
+button.btn-small[type="submit"]:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.6);
+}
+
+/* Reset */
+button.btn-small[type="reset"] {
+  background: #3b4a4a;
+  color: white;
+}
+button.btn-small[type="reset"]:hover {
+  background: #4f5e5e;
+  transform: scale(1.05);
+}
+
+/* Cancel */
+#cancelBtn {
+  width: 100%;
+  background: #445858;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#cancelBtn:hover {
+  background: #5b7070;
+  transform: scale(1.03);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 500px) {
+  .register-box {
+    width: 100%;
+    max-width: 340px;
+    padding: 35px 25px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-small {
+    width: 100%;
+  }
+}

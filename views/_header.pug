@@ -1,0 +1,43 @@
+header.navbar
+  .nav-left
+    a.logo(href="/")
+      span.logo-box S
+      span.logo-text SkyScholars
+
+  // Mobile Menu Toggle Button
+  button.menu-toggle(type="button" onclick="toggleMenu()") ☰
+
+  nav.nav-links
+    a(href="/") Home
+    a(href="/scoreboard") Scoreboard
+    a(href="/about") About
+
+  .nav-right
+    if user
+      a.enter-code(href="/joincode") Enter Code
+      .dropdown
+        button.dropdown-toggle(type="button") #{user.name}
+        .dropdown-menu
+          a(href="/profile") My Profile
+
+          if user.role === 'teacher' || user.role === 'admin'
+            a(href="/viewquestion") Manage Questions
+
+          if user.role === 'admin'
+            a(href="/viewuser") Manage Users
+
+          form.logout-form(action="/logout", method="POST")
+            button(type="submit") Logout
+
+    else
+      a.enter-code(href="/joincode") Enter Code
+      a.login(href="/login") Login
+      a.register(href="/register") Register
+
+script.
+  function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('show');
+    document.querySelector('.nav-right').classList.toggle('show');
+  }
+
+script(src="/js/navbar.js" defer)

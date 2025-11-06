@@ -1,0 +1,298 @@
+/* ---------- GLOBAL LAYOUT ---------- */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #0b0f0f 0%, #101414 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ---------- MAIN CONTAINER ---------- */
+main.container {
+  flex: 1;
+  width: 92%;
+  margin: 50px auto;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.15);
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #00bfff;
+  margin-bottom: 30px;
+  text-shadow: 0 0 15px rgba(0, 191, 255, 0.8);
+}
+
+/* ---------- TABLE ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th,
+td {
+  border: 1px solid #1e1e1e;
+  padding: 12px 14px;
+  text-align: center;
+}
+
+th {
+  background: #00bfff;
+  color: #000;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+td {
+  color: #eee;
+  font-size: 0.95rem;
+}
+
+tr:nth-child(even) {
+  background: #151a1a;
+}
+
+/* ---------- ACTION BUTTONS ---------- */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.actions a,
+.actions button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.actions a {
+  background: #ffaa00;
+}
+
+.actions a:hover {
+  background: #e69a00;
+}
+
+.delete-btn {
+  background: #ff4444;
+}
+
+.delete-btn:hover {
+  background: #d93636;
+}
+
+/* ---------- EMPTY STATE ---------- */
+.no-questions {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #bbb;
+  margin-top: 30px;
+}
+
+/* ---------- BACK BUTTON ---------- */
+.div-back {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.btn-back {
+  background: linear-gradient(135deg, #00bfff, #3ae0ff);
+  color: #000;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(0, 191, 255, 0.35);
+}
+
+.btn-back:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0, 191, 255, 0.6);
+}
+
+/* ---------- FOOTER ALIGNMENT ---------- */
+footer {
+  margin-top: auto;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 800px) {
+  table {
+    font-size: 0.85rem;
+  }
+
+  th,
+  td {
+    padding: 8px;
+  }
+
+  .page-title {
+    font-size: 1.7rem;
+  }
+}
+
+/* ===== DELETE MODAL ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: linear-gradient(180deg, #0b0f0f, #111a1a);
+  color: #fff;
+  padding: 25px 35px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 191, 255, 0.4);
+  animation: fadeIn 0.25s ease-in-out;
+  max-width: 320px;
+}
+
+.modal-content h3 {
+  color: #00bfff;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.modal-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-confirm,
+.btn-cancel {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.btn-confirm {
+  background: #00bfff;
+  color: #000;
+}
+
+.btn-confirm:hover {
+  background: #21d0ff;
+  transform: scale(1.05);
+}
+
+.btn-cancel {
+  background: #444;
+  color: #fff;
+}
+
+.btn-cancel:hover {
+  background: #666;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== FADE-OUT ROW ANIMATION ===== */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* ----- ADD QUESTION BUTTON ----- */
+.add-question-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.btn-add-question {
+  background: linear-gradient(135deg, #00bfff, #3ae0ff);
+  color: #000;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px rgba(0, 191, 255, 0.35);
+}
+
+.btn-add-question:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0, 191, 255, 0.6);
+}
+
+/* ---------- TOP ACTIONS (Search + Add Button) ---------- */
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 15px;
+}
+
+#searchInput {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  background: #111;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 191, 255, 0.25);
+}
+
+#searchInput::placeholder {
+  color: #aaa;
+}
+
+.btn-add-question {
+  background: linear-gradient(135deg, #00bfff, #3ae0ff);
+  color: #000;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px rgba(0, 191, 255, 0.35);
+}
+
+.btn-add-question:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0, 191, 255, 0.6);
+}

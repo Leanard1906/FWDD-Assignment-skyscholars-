@@ -1,0 +1,79 @@
+/* ---------- PAGE CONTAINER ---------- */
+.leaderboard-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 60px 20px;
+  min-height: calc(100vh - 160px); /* ensures footer stays at bottom */
+}
+
+/* ---------- TITLE ---------- */
+.leaderboard-title {
+  font-size: 2.5rem;
+  color: #00bfff;
+  text-shadow: 0 0 15px rgba(0, 191, 255, 0.8);
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+/* ---------- TABLE ---------- */
+.leaderboard-table {
+  width: 85%;
+  max-width: 900px;
+  border-collapse: collapse;
+  background: #121a1a;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 191, 255, 0.25);
+}
+
+.leaderboard-table th {
+  background: linear-gradient(135deg, #00bfff, #38d9ff);
+  color: #000;
+  font-weight: 600;
+  padding: 15px;
+  text-align: center;
+}
+
+.leaderboard-table td {
+  padding: 15px;
+  text-align: center;
+  color: #fff;
+  background: #1a2222;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.leaderboard-table tr:nth-child(even) td {
+  background: #151c1c;
+}
+
+.leaderboard-table tr:hover td {
+  background: #00bfff;
+  color: #000;
+}
+
+.leaderboard-table td:first-child {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+/* ---------- NO DATA ---------- */
+.no-data {
+  color: #888;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+  .leaderboard-table {
+    width: 95%;
+  }
+
+  .leaderboard-title {
+    font-size: 2rem;
+  }
+}

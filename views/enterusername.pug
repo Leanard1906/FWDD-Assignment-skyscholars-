@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Enter Username | SkyScholars
+    link(rel="stylesheet", href="/css/navbar-footer.css")
+    link(rel="stylesheet", href="/css/enterusername.css")
+    script(defer src="/js/enterusername.js")
+
+  body
+    // ===== Include Shared Header =====
+    include _header.pug
+
+    // ---------- MAIN CONTENT ----------
+    main.container
+      .logo-section
+        .logo-box-big S
+        h1.logo-text-big SkyScholars
+
+      form#usernameForm(action="/enterusername" method="POST")
+        .input-box
+          input#username(type="text" name="username" placeholder="Enter a Username" required)
+          button#joinBtn(type="submit") Join
+
+    // ===== Include Shared Footer =====
+    include _footer.pug

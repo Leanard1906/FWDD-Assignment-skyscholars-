@@ -1,0 +1,34 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title SkyScholars | Quiz
+    link(rel="stylesheet", href="/css/navbar-footer.css")
+    link(rel="stylesheet", href="/css/quiz.css")
+    script(defer src="/js/quiz.js")
+  body
+    // ===== NAVBAR =====
+    include _header.pug
+
+    // ===== MAIN QUIZ CONTENT =====
+    main.quiz-wrapper
+      // === QUESTION CONTAINER ===
+      #question-container.quiz-box
+        h2#question-text Loading question...
+
+        .options
+          // JS dynamically inserts buttons here
+
+        .buttons
+          button#nextBtn Next Question
+          button#finishBtn Finish Quiz
+
+      // ===== RESULT SECTION =====
+      section.result-container(style="display:none;")
+        h2#resultTitle Quiz Finished!
+        p#resultMessage
+        a#homeBtn(href="/") Back to Home
+
+    // ===== FOOTER =====
+    include _footer.pug

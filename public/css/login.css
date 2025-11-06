@@ -1,0 +1,126 @@
+/* ---------- GLOBAL LAYOUT ---------- */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #0b0f0f 0%, #101414 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- MAIN CONTENT ---------- */
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  gap: 50px;
+  padding-bottom: 40px;
+}
+
+.image-section img {
+  width: 380px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+}
+
+.form-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 12px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section h1 {
+  color: #00bfff;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* ---------- FORM INPUTS ---------- */
+label {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 6px;
+  background: #f2f2ff;
+  font-size: 1rem;
+}
+
+/* ---------- BUTTONS ---------- */
+.button-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+button,
+a#backBtn {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+button#loginBtn {
+  background: #00bfff;
+  color: black;
+  font-weight: bold;
+}
+
+button#loginBtn:hover {
+  background: #3ae0ff;
+  transform: scale(1.02);
+}
+
+a#backBtn {
+  background: #3b4a4a;
+  color: white;
+  text-decoration: none;
+}
+
+a#backBtn:hover {
+  background: #4f5e5e;
+  transform: scale(1.02);
+}
+
+/* ---------- STATUS MESSAGE ---------- */
+#statusMessage {
+  margin-top: 12px;
+  font-size: 1rem;
+  text-align: center;
+  color: #00bfff;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 850px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image-section img {
+    width: 300px;
+  }
+
+  .form-section {
+    width: 100%;
+    max-width: 350px;
+  }
+}

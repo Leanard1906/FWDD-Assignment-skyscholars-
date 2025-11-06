@@ -1,0 +1,73 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title SkyScholars | View Questions
+
+    // ===== Shared and Page Styles =====
+    link(rel="stylesheet", href="/css/navbar-footer.css")
+    link(rel="stylesheet", href="/css/viewquestion.css")
+
+    // ===== JS =====
+    script(src="/js/main.js" defer)
+    script(src="/js/viewquestion.js" defer)
+
+  body
+    // ===== NAVBAR (shared) =====
+    include _header.pug
+
+    // ===== MAIN CONTENT =====
+    main.container
+      h1.page-title View All Questions
+
+      // ===== TOP BAR WITH SEARCH + ADD BUTTON =====
+      .top-actions
+        input#searchInput(type="text" placeholder="Search by Room Code, Topic, or Question...")
+        a.btn-add-question(href="/addquestion") + Add Question
+
+      if questions && questions.length > 0
+        table#questionTable
+          thead
+            tr
+              th Room Code
+              th Topic
+              th Question
+              th A
+              th B
+              th C
+              th D
+              th Correct
+              th Actions
+          tbody
+            each q in questions
+              tr(data-id=q.id)
+                td= q.roomcode || q.room_code || '-'
+                td= q.topic
+                td= q.question
+                td= q.optionA
+                td= q.optionB
+                td= q.optionC
+                td= q.optionD
+                td= q.correctAnswer
+                td.actions
+                  a.edit-link(href=`/editquestion/${q.id}`) Edit
+                  button.delete-btn(type="button") Delete
+      else
+        p.no-questions No questions found.
+
+      // Back button
+      .div-back
+        a.btn-back(href="/") ← Back
+
+    // ===== DELETE CONFIRM MODAL =====
+    #deleteModal.modal
+      .modal-content
+        h3 Confirm Deletion
+        p Are you sure you want to delete this question?
+        .modal-buttons
+          button#confirmDeleteBtn.btn-confirm(type="button") Yes, Delete
+          button#cancelDeleteBtn.btn-cancel(type="button") Cancel
+
+    // ===== FOOTER (shared) =====
+    include _footer.pug

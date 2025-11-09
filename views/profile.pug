@@ -18,25 +18,24 @@ html(lang="en")
       form#updateForm(action="/profile/update" method="POST")
         .input-group
           label(for="username") Username
-          input#username(type="text" name="username" required value=(profile && profile.username) || '')
+          input#username(type="text", name="username", required, value=(profile && profile.username) || "")
         .input-group
           label(for="email") Email
-          input#email(type="email" name="email" required value=(profile && profile.email) || '')
+          input#email(type="email", name="email", required, value=(profile && profile.email) || "")
         button.save-btn(type="submit") Save Changes
+        p#updateStatus.message
 
       // ===== CHANGE PASSWORD =====
       form#passwordForm(action="/profile/change-password" method="POST")
         h2 Change Password
         .input-group
           label(for="currentPassword") Current Password
-          input#currentPassword(type="password" name="currentPassword" required)
+          input#currentPassword(type="password", name="currentPassword", required)
         .input-group
           label(for="newPassword") New Password
-          input#newPassword(type="password" name="newPassword" required)
+          input#newPassword(type="password", name="newPassword", required)
         button.password-btn(type="submit") Change Password
-
-      // ===== STATUS MESSAGE =====
-      p#statusMessage
+        p#passwordStatus.message
 
       // ===== BACK BUTTON =====
       a.back-btn(href="/") ← Back

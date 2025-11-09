@@ -77,7 +77,7 @@ app.get("/login", (req, res) => res.render("login"));
 app.get("/register", (req, res) => res.render("register"));
 app.get("/joincode", (req, res) => res.render("joincode"));
 app.get("/enterusername", (req, res) => res.render("enterusername"));
-app.get("/profile", checkLoggedIn, (req, res) => res.render("profile"));
+// app.get("/profile", checkLoggedIn, (req, res) => res.render("profile"));
 app.get("/startquiz", (req, res) => res.render("startquiz"));
 
 /* ============================

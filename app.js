@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const mysql = require("mysql2");
 const session = require("express-session");
+const os = require("os");
+const QRCode = require("qrcode");
 const app = express();
 
 /* ============================
@@ -40,19 +42,17 @@ db.connect((err) => {
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
-/* ---------- LOGIN CHECK MIDDLEWARE ---------- */
+/* ---------- LOGIN & ROLE MIDDLEWARE ---------- */
 function checkLoggedIn(req, res, next) {
   if (req.session.user) return next();
   res.redirect("/login");
 }
 
-/* ---------- ADMIN CHECK MIDDLEWARE ---------- */
 function isAdmin(req, res, next) {
   if (req.session.user && req.session.user.role === "admin") return next();
   return res.status(403).send("Access denied. Admins only.");
 }
 
-/* ---------- TEACHER CHECK MIDDLEWARE ---------- */
 function isTeacher(req, res, next) {
   if (
     req.session.user &&
@@ -83,60 +83,55 @@ app.get("/startquiz", (req, res) => res.render("startquiz"));
 /* ============================
   ROUTES
 ============================ */
-const registerRoute = require("./routes/register")(db);
-app.use("/", registerRoute);
+app.use("/", require("./routes/register")(db));
+app.use("/", require("./routes/login")(db));
+app.use("/", require("./routes/enterusername")());
+app.use("/", require("./routes/joincode")(db));
+app.use("/", require("./routes/checkemail")(db));
+app.use("/profile", checkLoggedIn, require("./routes/profile")(db));
+app.use("/", require("./routes/scoreboard")(db));
+app.use("/", require("./routes/quiz")(db));
+app.use("/", require("./routes/addquestion")(db, isTeacher));
+app.use("/", require("./routes/viewquestion")(db, isTeacher));
+app.use("/", require("./routes/editquestion")(db, isTeacher));
+app.use("/", require("./routes/viewuser")(db, isAdmin));
+app.use("/", require("./routes/edituser")(db, isAdmin));
 
-const loginRoute = require("./routes/login")(db);
-app.use("/", loginRoute);
+/* ---------- QR CODE ROUTE ---------- */
+app.get("/quizqr", (req, res) => {
+  const IP = getLocalIP(); // use PC LAN IP
+  const url = `http://${IP}:3000/joincode`; // use LAN URL
 
-const enterUsernameRoute = require("./routes/enterusername")();
-app.use("/", enterUsernameRoute);
-
-const joincodeRoute = require("./routes/joincode")(db);
-app.use("/", joincodeRoute);
-
-const checkEmailRoute = require("./routes/checkemail")(db);
-app.use("/", checkEmailRoute);
-
-/* ---------- PROFILE ROUTE ---------- */
-const profileRoute = require("./routes/profile")(db);
-app.use("/profile", checkLoggedIn, profileRoute);
-
-/* ---------- SCOREBOARD ROUTE ---------- */
-const scoreboardRoute = require("./routes/scoreboard")(db);
-app.use("/", scoreboardRoute);
-
-/* ---------- QUIZ ROUTE ---------- */
-const quizRoute = require("./routes/quiz");
-app.use("/", quizRoute(db));
-
-/* ---------- QUESTIONS (Teacher or Admin) ---------- */
-const addQuestionRoute = require("./routes/addquestion");
-app.use("/", addQuestionRoute(db, isTeacher));
-
-const viewQuestionRoute = require("./routes/viewquestion");
-app.use("/", viewQuestionRoute(db, isTeacher));
-
-const editQuestionRoute = require("./routes/editquestion");
-app.use("/", editQuestionRoute(db, isTeacher));
-
-/* ---------- USER MANAGEMENT (Admin Only) ---------- */
-const viewUserRoute = require("./routes/viewuser");
-app.use("/", viewUserRoute(db, isAdmin));
-
-const editUserRoute = require("./routes/edituser");
-app.use("/", editUserRoute(db, isAdmin));
-
-/* ---------- LOGOUT ROUTE (Fix) ---------- */
-app.post("/logout", (req, res) => {
-  req.session.destroy(() => {
-    res.redirect("/"); // ✅ Redirect to main page
+  QRCode.toDataURL(url, (err, qrImage) => {
+    if (err) return res.send("Error generating QR");
+    res.render("quizqr", { qr: qrImage, url });
   });
 });
 
+/* ---------- LOGOUT ROUTE ---------- */
+app.post("/logout", (req, res) => {
+  req.session.destroy(() => res.redirect("/"));
+});
+
 /* ============================
-  START SERVER
+  START SERVER (LAN ENABLED)
 ============================ */
-app.listen(3000, function () {
-  console.log("✅ Server running on http://localhost:3000");
+function getLocalIP() {
+  const interfaces = os.networkInterfaces();
+  for (let name in interfaces) {
+    for (let iface of interfaces[name]) {
+      if (iface.family === "IPv4" && !iface.internal) return iface.address;
+    }
+  }
+  return "localhost";
+}
+
+const PORT = 3000;
+const IP = getLocalIP();
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log("=====================================================");
+  console.log(`✅ Server running on this PC: http://localhost:${PORT}`);
+  console.log(`🌍 Access on other devices:  http://${IP}:${PORT}`);
+  console.log("=====================================================");
 });

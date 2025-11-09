@@ -23,6 +23,9 @@ header.navbar
           if user.role === 'teacher' || user.role === 'admin'
             a(href="/viewquestion") Manage Questions
 
+          if user.role === 'teacher' || user.role === 'admin'
+            a(href="/quizqr") QR Page
+
           if user.role === 'admin'
             a(href="/viewuser") Manage Users
 

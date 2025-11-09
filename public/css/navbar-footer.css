@@ -12,7 +12,6 @@ header.navbar {
   border: none;
 }
 
-/* 🩵 Fix subpixel gap under navbar (removes faint line issue) */
 header.navbar::after {
   content: "";
   position: absolute;

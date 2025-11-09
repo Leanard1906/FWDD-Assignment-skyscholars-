@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Scan to Join Quiz
+    link(rel="stylesheet", href="/css/quizqr.css")
+  body
+    header.navbar
+      .nav-content
+        a.logo(href="/")
+          span.logo-box S
+          span.logo-text SkyScholars
+
+    .container
+      h1 Scan to Join Quiz
+      p.subtext Open this QR with your phone camera
+
+      .qr-box
+        img(src=qr alt="Quiz QR Code")
+
+      .url-box
+        span #{url}
+
+      a.back-btn(href="/") Back to Home

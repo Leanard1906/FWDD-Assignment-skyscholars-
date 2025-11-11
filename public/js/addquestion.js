@@ -114,11 +114,21 @@ document.addEventListener("DOMContentLoaded", () => {
         msg.textContent = data.message || (data.success ? "Saved!" : "Error");
         msg.style.color = data.success ? "#00ff88" : "#ff6b6b";
 
+        // ===== ADD REDIRECT AFTER SUCCESS =====
         if (data.success) {
+          msg.textContent = data.message + " Redirecting to view questions...";
+          msg.style.color = "#00ff88";
+
           form.reset();
           container.innerHTML = "";
-          createQuestionBlock(); // add one empty question again
+          createQuestionBlock();
+
+          // Wait 3 seconds then redirect
+          setTimeout(() => {
+            window.location.href = "/viewquestion";
+          }, 3000);
         }
+
       } catch (err) {
         console.error("Error saving questions:", err);
         msg.textContent = "Server error. Try again.";

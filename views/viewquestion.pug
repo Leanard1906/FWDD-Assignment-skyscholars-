@@ -42,7 +42,7 @@ html(lang="en")
           tbody
             each q in questions
               tr(data-id=q.id)
-                td= q.roomcode || q.room_code || '-'
+                td= q.roomCode || q.room_code || '-'
                 td= q.topic
                 td= q.question
                 td= q.optionA
